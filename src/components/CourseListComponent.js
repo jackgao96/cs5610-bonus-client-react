@@ -32,13 +32,13 @@ class CourseListComponent extends React.Component {
 
 
 
-    addCourse = async () => {
+    addCourse = async (domain) => {
         const newCourse = {
             title: this.state.newCourseTitle
         }
-        const actualCourse = await createCourse(newCourse)
+        const actualCourse = await createCourse(newCourse, domain)
         console.log(actualCourse)
-        const allCourses = await findAllCourses()
+        const allCourses = await findAllCourses(domain)
         this.setState({
             courses: allCourses
         })
@@ -49,9 +49,9 @@ class CourseListComponent extends React.Component {
         this.setState({
             newCourseTitle: e.target.value
         })
-    deleteCourse = async (deletedCourse) => {
-        const status = await deleteCourse(deletedCourse._id)
-        const courses = await findAllCourses()
+    deleteCourse = async (deletedCourse, domain) => {
+        const status = await deleteCourse(deletedCourse._id, domain)
+        const courses = await findAllCourses(this.props.domain)
         this.setState({
             courses: courses
         })
@@ -68,9 +68,10 @@ class CourseListComponent extends React.Component {
 
                 <CourseTableComponent
                     deleteCourse={this.deleteCourse}
-                    courses={this.state.courses}/>
+                    courses={this.state.courses}
+                    domian={this.props.domain}/>
                 <button
-                    onClick={this.addCourse}>
+                    onClick={() => this.addCourse(this.props.domain)}>
                     Add Course
                 </button>
             </div>

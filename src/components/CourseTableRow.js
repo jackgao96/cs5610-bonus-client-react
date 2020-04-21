@@ -87,11 +87,11 @@ class CourseTableRow extends React.Component {
 
                             }
 
-                            <button onClick={() => this.props.deleteCourse(this.props.course)}>Delete</button>
+                            <button onClick={() => this.props.deleteCourse(this.props.course, this.props.domain)}>Delete</button>
                             <button onClick={
                                 (e) => {
                                     this.createField()
-                                updateCourse(this.props.course._id, this.props.course).then(status => {
+                                updateCourse(this.props.course._id, this.state.course, this.props.domain).then(status => {
                                 })
                                 this.setState({
                                     editing: false

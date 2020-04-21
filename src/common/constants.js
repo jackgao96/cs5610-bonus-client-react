@@ -1,6 +1,6 @@
 
-export const API_URL = "http://wbdv-generic-server.herokuapp.com/api/huigao1"
-export const DOMAIN_API_URL = "http://wbdv-generic-server.herokuapp.com/api/huigao1/domains"
+export const API_URL = "https://wbdv-generic-server.herokuapp.com/api/huigao1"
+export const DOMAIN_API_URL = "https://wbdv-generic-server.herokuapp.com/api/huigao1/domains"
 
 export const LESSONS_API_URL = "https://wbdv-generic-server.herokuapp.com/api/huigao1/lessons"
 export const TOPICS_API_URL = "https://wbdv-sp20-huigao-server-java.herokuapp.com/api/topics"
